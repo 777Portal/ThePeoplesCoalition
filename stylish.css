@@ -51,8 +51,13 @@ img:not(:hover) {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.shake:hover {
-    animation: shake 0.82s;   
+.noClick:active {
+    animation: shake 0.5s;
+}
+
+.glow:hover { 
+    cursor: default;  
+    text-shadow: 0px 0px 6px rgba(255, 255, 1, 1);
 }
 
 .box:hover {
@@ -82,7 +87,6 @@ button {
 }
 
 button:hover {
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
     background-color: #FF8552;
     /* animation: shake 0.82s; */
 }
