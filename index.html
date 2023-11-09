@@ -1,11 +1,77 @@
 <!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="stylish.css">
+    <meta content="Exon's website - info and examples" property="og:title">
+
+    <meta content="ExonAuto.Me" property="og:description">
+
+    <meta content='https://cdn.discordapp.com/avatars/785577645379026955/b2adb0f8f02cae732a3d026eec98ec3f.png?size=1024' property='og:image'>
+    
+    <meta name="theme-color" content="#FF5733">
+
+    <link type="application/json+oembed" href="discordEmbed.json" />
+    <script>        
+        function openTHELink(link){
+            console.log(link)
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        }
+    
+        function openLinkWarn(link){
+            console.log(link)
+            var actuallyOpen = confirm(`Are you sure you want to open \n${link}?`);
+            if (actuallyOpen) {
+                window.open(link);
+            } else {
+                alert(`Alright, didn\'t open \n${link}`)
+            }
+        }
+    </script>
+</head>
+
 <html>
-<body>
 
-<h1>Hello, world!</h1>
-
-<p>Ect ect ect.</p>
-
+<div class="parent center">
+    <div class="box">
+    <h2>Skillz</h2>
+        <div class="box shake">Javascript</div>
+        <div class="box shake">Skript (lol)</div>
+        <div class="box shake">Node.js</div>
+        <div class="box shake">Html</div>
+        <div class="box shake">Css</div>
+    </div>
+    
+    <div class="box">
+        <img src="https://cdn.discordapp.com/avatars/785577645379026955/b2adb0f8f02cae732a3d026eec98ec3f.png?size=1024">
+        <h2>About me</h2>
+        <hr class="half">
+        <br>
+        <b>Just a person who enjoys coding & content creation on their offtime.</b> 
+    </div>
+    
+    <div class="box">
+        <h2>Socials</h2>
+        <div class="box">
+            Github
+            <button onclick="openLinkWarn('https\:\/\/github.com/777Portal')">Click</button>
+        </div>
+        <div class="box">
+            Discord
+            <button>Click</button>
+        </div>
+        <div class="box">
+            Youtube
+            <button onclick="openLinkWarn('https\:\/\/www.youtube.com/@ExonsExcerpts')">Click</button>
+        </div>
+    </div>
+    
+</div>
+<br>
+<br>
+<div class="box center">
+        <h3>Check out some example code from <a onclick="openLinkWarn('https\:\/\/gist.github.com/777Portal/f7ce8e85f61f80d6a141128250a7b65d')">this</a> gist :)</h3>
+        <iframe frameborder=0 scrolling="no" seamless="seamless" srcdoc='<html><body><style type="text/css">.gist .gist-data { height: 400px; }</style><script src="https://gist.github.com/777Portal/f7ce8e85f61f80d6a141128250a7b65d.js"></script></body></html>'></iframe> 
+</div>
 </body>
+
 </html>
 
