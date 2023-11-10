@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <style>
+    html, body {
+        width:  100%;
+        height: 100%;
+        background-color: #343434;
+        color: white;
+        margin: 0;
+    }
+    button{
+        border-radius: 25px;
+        font-size: x-large;
+        color: white;
+        margin: 1cm;
+        padding: 1cm;
+        border: 1px solid #ccc;
+        background-color: #000000;
+    }
+    .parent {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    } 
+    .column {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .center {
+        margin: auto;
+        text-align: center;
+        width: 50%;
+    }  
+    </style>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Project</title>
+</head>
+<html>
+    <body>
+        <h1 class="center">Wave simulator</h1>
+        <div class="parent">
+            <div>
+                <canvas id="waveCanvas"></canvas>
+            </div>
+            <div class="parent center button">
+                <div>
+                    <button>Press to restart?<br><hr>Or press enter</button>
+                    <p id="oldAmp">Amplitude: </p>
+                    <p id="currentAmp">Amplitude: </p>
+                    change amplitude? <input type="range" min="1" max="1000" value="500"><br>Or type the amount <input type="text" id="name" name="Amp"/>
+                    <br><br>
+                    enable energy decay? (not mathamatically acurate) <input type="checkbox" id="enableDecay" checked />
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="wave.js"></script>
+</html>
+
+
