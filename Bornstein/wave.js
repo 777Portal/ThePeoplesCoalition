@@ -1,5 +1,7 @@
-const info = {"version":"0.0.1", "date":"Nov 3 2023"}
+const info = {"version":"0.0.2", "date":"Nov 26 2023"}
 const canvas = document.getElementById("waveCanvas")
+
+var energyDecay = false
 
 var ctx = canvas.getContext("2d");
     ctx.canvas.width  = 1200;
@@ -11,7 +13,7 @@ var positionY = canvas.height / 2
 var timesRun = 0
 
 function drawBg(){
-    document.getElementById("oldAmp").innerText = `Current amplitude: ${amplitude}`
+    document.getElementById("oldAmp").innerText = `Original amplitude: ${amplitude}`
     
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -23,7 +25,7 @@ function drawBg(){
     numberOfHarmonics = newAmp / 60
     ctx.fillText(`Hey`, canvas.width - 50, canvas.height - 50);
     ctx.fillText(`Ver ${info.version} | ${info.date}`, canvas.width - 100, canvas.height - 25);
-    ctx.fillText(`Numbed of harmonics: ${Math.round(numberOfHarmonics)}`, Math.round(canvas.width - 100) / 2, canvas.height - 50, 200, 20);
+    ctx.fillText(`Number of harmonics: ${Math.round(numberOfHarmonics)}`, Math.round(canvas.width - 100) / 2, canvas.height - 50, 200, 20);
 }
 drawBg();
 
@@ -32,40 +34,55 @@ var speed = setInterval(function() {
     renderTheThing()
 }, 16.7);
 
-var amplitude = 1000;
+var amplitude = 600;
 var newAmp = amplitude;
 
-function renderTheThing() {
-    ctx.fillStyle = "black";
-    ctx.fillStyle = "white";
+function renderTheThing() {    
+    timesRun += 1
     numberOfHarmonics = newAmp / 60
-    timesRun+=1
-    oddOrEven = (timesRun | 1) === timesRun ? 'Odd' : 'Even';
     
     if(positionX >= canvas.width){
         drawBg()
         positionX = 0
-        newAmp -= Math.round(newAmp / 10)
-        document.getElementById("currentAmp").innerText = `Current amplitude: ${newAmp}`
+        if (energyDecay == true){
+            newAmp -= Math.round(newAmp / 10)
+            document.getElementById("currentAmp").innerText = `Current amplitude: ${newAmp}`
+        }
     }
-    
-    distance = canvas.width / numberOfHarmonics
-    
+      
     ctx.strokeStyle = "blue";
     ctx.beginPath();
     ctx.moveTo(positionX, positionY);
+    
+    lengthOfHarmonic = canvas.width / numberOfHarmonics
+    
     originalX = positionX
-    positionX += distance
+    positionX += lengthOfHarmonic
     
+    oddOrEven = (timesRun | 1) === timesRun ? 'Odd' : 'Even';
     
-    if(oddOrEven == 'Odd' || numberOfHarmonics == 1){
-        ctx.quadraticCurveTo(positionX - distance, positionY-newAmp, positionX, positionY, positionX, positionY);
+    if (oddOrEven == 'Odd' || numberOfHarmonics == 1) {
+        ctx.quadraticCurveTo(positionX - lengthOfHarmonic, positionY - newAmp, positionX, positionY, positionX, positionY);
     } else {
-        ctx.quadraticCurveTo(positionX - distance, positionY+newAmp, positionX, positionY, positionX, positionY); 
-    }
+        ctx.quadraticCurveTo(positionX - lengthOfHarmonic, positionY + newAmp, positionX, positionY, positionX, positionY);
+    }    
+
     ctx.stroke();
 }
-        
+document.getElementById("restart").addEventListener("click", function (e) {
+    this.innerText = "reloading"
+    location.reload();
+});
+
+document.getElementById("amp").addEventListener('input', function (evt) {
+    amplitude = this.value
+    newAmp = this.value
+    positionX = 0
+    timesRun = 0
+    drawBg()
+});
+
+
 var devtools = function() {};
         
 devtools.toString = function() {
