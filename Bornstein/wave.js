@@ -1,4 +1,4 @@
-const info = {"version":"0.0.2", "date":"Nov 26 2023"}
+const info = {"version":"0.0.3", "date":"Dec 1 2023"}
 const canvas = document.getElementById("waveCanvas")
 
 var energyDecay = false
@@ -37,36 +37,33 @@ var speed = setInterval(function() {
 var amplitude = 600;
 var newAmp = amplitude;
 
-function renderTheThing() {    
+function renderTheThing() {   
     timesRun += 1
-    numberOfHarmonics = newAmp / 60
     
     if(positionX >= canvas.width){
         drawBg()
         positionX = 0
-        if (energyDecay == true){
-            newAmp -= Math.round(newAmp / 10)
-            document.getElementById("currentAmp").innerText = `Current amplitude: ${newAmp}`
-        }
     }
       
     ctx.strokeStyle = "blue";
     ctx.beginPath();
     ctx.moveTo(positionX, positionY);
     
-    lengthOfHarmonic = canvas.width / numberOfHarmonics
+    lengthOfHarmonic = /*Math.round(*/ canvas.width / numberOfHarmonics //)
     
     originalX = positionX
     positionX += lengthOfHarmonic
     
     oddOrEven = (timesRun | 1) === timesRun ? 'Odd' : 'Even';
-    
-    if (oddOrEven == 'Odd' || numberOfHarmonics == 1) {
-        ctx.quadraticCurveTo(positionX - lengthOfHarmonic, positionY - newAmp, positionX, positionY, positionX, positionY);
+    if (oddOrEven == 'Odd') {
+        theHight = positionY + newAmp
     } else {
-        ctx.quadraticCurveTo(positionX - lengthOfHarmonic, positionY + newAmp, positionX, positionY, positionX, positionY);
+        theHight = positionY - newAmp
     }    
-
+    ctx.quadraticCurveTo(positionX - lengthOfHarmonic, theHight, positionX, positionY, positionX, theHight);
+    
+    console.log(`x:${positionX} - y:${positionY} || length: ${lengthOfHarmonic} - amplitude: ${newAmp} `)
+    
     ctx.stroke();
 }
 document.getElementById("restart").addEventListener("click", function (e) {
@@ -74,9 +71,15 @@ document.getElementById("restart").addEventListener("click", function (e) {
     location.reload();
 });
 
+document.addEventListener("keydown", (event) => {
+    console.log(event.code)
+    if (event.code === "Enter")
+        location.reload();
+})
+
 document.getElementById("amp").addEventListener('input', function (evt) {
-    amplitude = this.value
-    newAmp = this.value
+    amplitude = parseInt(this.value)
+    newAmp = parseInt(this.value)
     positionX = 0
     timesRun = 0
     drawBg()
