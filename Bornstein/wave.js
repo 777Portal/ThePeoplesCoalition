@@ -66,6 +66,7 @@ function renderTheThing() {
     
     ctx.stroke();
 }
+
 document.getElementById("restart").addEventListener("click", function (e) {
     this.innerText = "reloading"
     location.reload();
@@ -94,9 +95,7 @@ devtools.toString = function() {
         ____ ____ ____  ___   ___   ___  _____   __    _    
          / /  / /  / / | |_) / / \\ | |_)  | |   / /\\  | |   
         /_/  /_/  /_/  |_|   \\\_\\\_/ |_| \\  |_|  /_/--\\ |_|__ 
-        
-                    Hi Mr.Bornstein
-        
+
     `)
     clearInterval(checkForHi)
 }
