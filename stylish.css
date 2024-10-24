@@ -11,7 +11,7 @@ body {
 }
 
 main {
-    padding: 20px;
+    padding: 50px;
 }
 
 nav {
@@ -21,7 +21,7 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.125);
 
     color: #fff;
-    padding: 10px;
+    padding: 2px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,7 +29,7 @@ nav {
   
 nav img{
     max-width: 45px;
-    max-height: 45px; /* Corrected typo */
+    max-height: 45px;
     border-radius: 50%;
 }
   
@@ -38,41 +38,13 @@ nav img:hover{
 }  
 
 nav h2 {
-    margin-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
   
 nav a {
     color: #fff;
     text-decoration: none;
-}
-  
-/* Side items styles */
-aside {
-    backdrop-filter: blur(23px) saturate(100%);
-    -webkit-backdrop-filter: blur(23px) saturate(100%);
-    background-color: rgba(50, 50, 46, 0.84);
-    border: 1px solid rgba(255, 255, 255, 0.125);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-  
-aside a {
-    display: block;
-    color: #ECECEB;
-    text-decoration: none;
-    padding: 30px;
-    margin-bottom: 5px;
-    text-align: center;
-}
-  
-aside a:hover {
-    background-color: #898987;
-}
-  
-aside a.active {
-    background-color: #BBBBB9;
 }
 
 .card {
@@ -110,11 +82,7 @@ aside a.active {
     section {
       display: flex;
     }
-  
-    aside {
-      flex: 0 0 15%;
-    }
-  
+      
     main {
       flex: 1;
     }
