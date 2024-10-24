@@ -10,140 +10,77 @@ body {
     padding: 0;
 }
 
-a {
-    color: turquoise;
+main {
+    padding: 20px;
 }
 
-a:hover {
-    color: blue;
-    cursor: pointer;
-}
+nav {
+    backdrop-filter: blur(23px) saturate(100%);
+    -webkit-backdrop-filter: blur(23px) saturate(100%);
+    background-color: rgba(50, 50, 46, 0.84);
+    border: 1px solid rgba(255, 255, 255, 0.125);
 
-p {
-    color: #FF5733;
-}
-
-img {
-    max-width: 25%;
-    max-height: 25%;
-    border-radius: 50%;
-    border: 4px solid #444;
-    width: fit-content;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-img:hover {
-    transition: transform 5.0s ease-out; 
-    transform: rotate(360deg) scale(0.2);  
-}
-
-img:not(:hover) {
-    transition: transform 2s ease-in-out;
-    animation-direction: reverse;
-}
-
-.half {
-    width: 75%;
-}
-
-.sticky{
-    position: sticky;
-}
-
-.box {
-    color: #FFFFFF;
-    background-color: #2A2A2A; /* Darker box background color */
-    border: 2px solid #444;
-    margin-bottom: 15px;
-    padding: 2px 2px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.noClick:active {
-    animation: shake 0.5s;
-}
-
-.glow:hover { 
-    cursor: default;  
-    text-shadow: 0px 0px 6px rgba(255, 255, 1, 1);
-}
-
-.box:hover {
-    background-color: #252525; /* Darker box background color */
-}
-
-.parent {
-    width: 80%;
-    margin: 0 auto;
+    color: #fff;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
+  
+nav img{
+    max-width: 45px;
+    max-height: 45px; /* Corrected typo */
+    border-radius: 50%;
+}
+  
+nav img:hover{
+    animation: rotate360 1s linear infinite;
+}  
 
-.parent button {
-    float: left;
-    color: white;
-    background-color: #171717;
-    font-size: 2vh;  
-    text-align: center;
-    padding: 14px 16px;
+nav h2 {
+    margin-right: 20px;
+}
+  
+nav a {
+    color: #fff;
     text-decoration: none;
-  }  
-
-button {
-    background-color: #FF5733;
-    color: #FFFFFF;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
-
-button:hover {
-    background-color: #FF8552;
-    /* animation: shake 0.82s; */
-}
-
-.center {
-    margin: auto;
-    text-align: center;
-    width: 50%;
-}
-
-.bigText {
-    font-size: 72px;
-    color: #FF5733;
-}
-
-.name {
-    background: -webkit-linear-gradient(#eee, #333);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.quarter-page-push {
-    margin-bottom: 25%;
-}
-
-.half-page-push {
-    margin-bottom: 50%;
-}
-
-.full-page-push {
-    margin-bottom: 100%;
-}
-
-.overlay{
-    opacity: 0.85;
-    background-color: #414141;
-    position: fixed;
-    width: 100%;
+  
+/* Side items styles */
+aside {
+    backdrop-filter: blur(23px) saturate(100%);
+    -webkit-backdrop-filter: blur(23px) saturate(100%);
+    background-color: rgba(50, 50, 46, 0.84);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    top: 0px;
-    left: 0px;
-    z-index: 999999;
-    padding: 25px;
+}
+  
+aside a {
+    display: block;
+    color: #ECECEB;
+    text-decoration: none;
+    padding: 30px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+  
+aside a:hover {
+    background-color: #898987;
+}
+  
+aside a.active {
+    background-color: #BBBBB9;
+}
+
+.card {
+    backdrop-filter: blur(17px) saturate(100%);
+    -webkit-backdrop-filter: blur(17px) saturate(100%);
+    background-color: rgba(119, 119, 117, 0.76);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 @keyframes shake {
@@ -167,4 +104,18 @@ button:hover {
 @keyframes rotate360 {
     to { transform: rotate(360deg);}           
 }
+
+/* Responsive styles */
+@media only screen and (min-width: 768px) {
+    section {
+      display: flex;
+    }
   
+    aside {
+      flex: 0 0 15%;
+    }
+  
+    main {
+      flex: 1;
+    }
+}
