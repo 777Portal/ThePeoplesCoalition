@@ -37,6 +37,15 @@ nav img:hover{
     animation: rotate360 1s linear infinite;
 }  
 
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+  
+.logo-container img {
+    margin-right: 10px;
+}
+
 nav h2 {
   padding-left: 20px;
   padding-right: 20px;
