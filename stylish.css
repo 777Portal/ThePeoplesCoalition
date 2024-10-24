@@ -179,7 +179,7 @@ img {
 
 @media (max-width: 480px) {
   .card {
-    width: 90%;
+    width: 100%;
     float: none;
     margin-left: auto;
     margin-right: auto;  
