@@ -1,11 +1,11 @@
 @supports (font-size-adjust: 1) {
-  article {
-      font-size-adjust: 0.5;
+  .card {
+    font-size-adjust: 0.5;
   }
 }
 
 p {
-    line-height: calc(1ex / 0.32);
+  line-height: calc(1ex / 0.32);
 }
 
 html {
@@ -67,12 +67,6 @@ nav a {
   text-decoration: none;
 }
 
-.section0 {
-background-image: url("assets/6.png");
-width: 500px;
-height: 500px;
-}
-
 .card {
   width: 50%;
   text-align: center;
@@ -115,5 +109,20 @@ height: 500px;
     
   main {
     flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 90%;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;  
   }
 }
