@@ -47,7 +47,7 @@ nav img{
 
 nav img:hover{
   animation: rotate360 1s linear infinite;
-}  
+}
 
 .logo-container {
   display: flex;
@@ -78,6 +78,61 @@ nav a {
   border: 1px solid rgba(255, 255, 255, 0.125);
 
 }
+
+.btn{
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.btn:hover{
+  position:relative;
+  animation:bouncy 5s infinite linear;
+  /* animation: rotate360 1s linear infinite; */
+}
+
+.btn{
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+.btn:hover{
+  color:#000000;
+  background-color:#FFFFFF;
+}
+
+@media all and (max-width:30em){
+  .card button{
+    display:block;
+    margin:0.4em auto;
+  }
+}
+  
+
+@keyframes bouncy {
+  0%{top:0em}
+  40%{top:0em}
+  43%{top:-0.9em}
+  46%{top:0em}
+  48%{top:-0.4em}
+  50%{top:0em}
+  100%{top:0em;}
+}
+  
 
 @keyframes shake {
   10%, 90% {
@@ -114,7 +169,7 @@ nav a {
 
 @media (max-width: 768px) {
   .card {
-    width: 50%;
+    width:45%;
   }
 }
 
